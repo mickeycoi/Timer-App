@@ -1,38 +1,66 @@
-.App {
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.timer-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  font-family: Rouge Script, cursive;
+  font-size: 70px;
+  font-weight: 50px;
+  color: red;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.timer {
+  border: 1px solid whitesmoke;
+  border-radius: 40px;
+  background-color: pink;
+  color: white;
+  padding: 50px 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  font-size: 70px;
+  padding: 10px 5px;
+  margin: 5px 10px;
+  line-height: 50px;
+  color: #fff;
+  font-family: Carme, sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.timer-display {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.button-wrapper {
+  display: flex;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  max-width: 33%;
+  height: auto;
+  border-radius: 40px;
+  border: 1px solid white;
+  background-color: pink;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  font-size: 2.5rem;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: rgb(205, 88, 223);
+  cursor: pointer;
 }
