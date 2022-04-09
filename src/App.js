@@ -5,9 +5,9 @@ function App() {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(59);
   const [seconds, setSeconds] = useState(50);
-
+  let timer;
   useEffect(() => {
-    let timer = setInterval(() => {
+    timer = setInterval(() => {
       setSeconds(seconds + 1);
       if (seconds === 59) {
         setMinutes(minutes + 1);
@@ -20,9 +20,16 @@ function App() {
     }, 1000);
     return () => clearInterval(timer);
   });
-  const handelStop = () => {};
-  const handelStart = () => {};
+  const handelStop = () => {
+    clearInterval(timer);
+  };
+  const handelStart = () => {
+    setInterval(timer);
+  };
+
   const handelReset = () => {
+    setHours(0);
+    setMinutes(0);
     setSeconds(0);
   };
 
