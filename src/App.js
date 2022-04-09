@@ -3,14 +3,28 @@ import "./App.css";
 
 function App() {
   const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  // useEffect(() => {
-  //   setInterval(setSeconds(seconds + 1), 1000);
-  // }, [seconds]);
+  const [minutes, setMinutes] = useState(59);
+  const [seconds, setSeconds] = useState(50);
+
+  useEffect(() => {
+    let timer = setInterval(() => {
+      setSeconds(seconds + 1);
+      if (seconds === 59) {
+        setMinutes(minutes + 1);
+        setSeconds(0);
+        if (minutes === 59) {
+          setHours(hours + 1);
+          setMinutes(0);
+        }
+      }
+    }, 1000);
+    return () => clearInterval(timer);
+  });
   const handelStop = () => {};
   const handelStart = () => {};
-  const handelReset = () => {};
+  const handelReset = () => {
+    setSeconds(0);
+  };
 
   return (
     <div className="timer-app">
@@ -18,7 +32,9 @@ function App() {
       <div className="timer">
         <div className="timer-display">
           <p>
-            {hours}:{minutes}:{seconds}
+            {hours < 10 ? "0" + hours : hours}:
+            {minutes < 10 ? "0" + minutes : minutes}:
+            {seconds < 10 ? "0" + seconds : seconds}
           </p>
         </div>
         <div className="button-wrapper">
